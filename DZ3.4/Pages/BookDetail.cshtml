@@ -1,0 +1,46 @@
+﻿@page
+@model DZ3._4.Pages.BookDetailModel
+@{
+    ViewData["Title"] = "Детали книги";
+}
+
+<div class="container">
+    @if (Model.Book != null)
+    {
+        <h1>@Model.Book.BookTitle</h1>
+        
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Информация о книге</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong>Название:</strong> @Model.Book.BookTitle
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Автор:</strong> @Model.Book.AuthorSurname @Model.Book.AuthorFirstname @Model.Book.AuthorSecondname
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Стиль:</strong> @Model.Book.Style
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Издательство:</strong> @Model.Book.Publishing
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Год издания:</strong> @Model.Book.Year
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a asp-page="/Library" class="btn btn-primary">Вернуться к списку книг</a>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger">
+            Книга не найдена.
+        </div>
+        <a asp-page="/Library" class="btn btn-primary">Вернуться к списку книг</a>
+    }
+</div>

@@ -2,6 +2,7 @@
 {
     public class Book
     {
+        public int Id { get; set; }
         public string? BookTitle { get; set; }//название книги
 
         public string? AuthorSurname { get; set; }//фамилия автора
@@ -14,11 +15,13 @@
 
         public string? Publishing { get; set; }//издательство
 
-        int? Year   { get; set; }//год издания
+        public int? Year   { get; set; }//год издания
 
-        public Book (string _BookTitle, string _AuthorSurname, string _AuthorFirstname, string _AuthorSecondname,
+        public Book() { }
+        public Book (int _Id, string _BookTitle, string _AuthorSurname, string _AuthorFirstname, string _AuthorSecondname,
             string _Style, string _Publishing, int _Year)
         {
+            Id = _Id;
             BookTitle= _BookTitle;
             AuthorSurname= _AuthorSurname;
             AuthorFirstname= _AuthorFirstname;
@@ -27,6 +30,5 @@
             Publishing= _Publishing;
             Year= _Year;
         }
-
     }
 }

@@ -1,7 +1,12 @@
+using DZ3._4.Pages.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddSingleton<IBookService, BookService>();
+builder.Services.AddSingleton<IBookInfo, BookInfo>();
 
 var app = builder.Build();
 

@@ -1,4 +1,39 @@
 ﻿@page
 @model DZ3._4.Pages.LibraryModel
 @{
+    ViewData["Title"] = "Моя библиотека";
 }
+
+<div class="container">
+    <h1>Библиотека</h1>
+    <p>Всего книг в библиотеке:@Model.BookCount</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Название книги</th>
+                <th>Автор</th>
+                <th>Стиль</th>
+                <th>Издательство</th>
+                <th>Год издания</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model.Books)
+            {
+                <tr>
+                    <td>
+                        <a asp-page="/BookDetail" asp-route-id="@book.Id">@book.BookTitle</a>
+                    </td>
+                    <td>@book.AuthorSurname @book.AuthorFirstname @book.AuthorSecondname</td>
+                    <td>@book.Style</td>
+                    <td>@book.Publishing</td>
+                    <td>@book.Year</td>
+                    <td>
+                        <a asp-page="/BookDetail" asp-route-id="@book.Id" class="btn btn-sm btn-info">Подробнее</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
